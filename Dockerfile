@@ -10,13 +10,9 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app/daddylive  # pass to work dir
-
-RUN git pull || git clone https://github.com/pigzillaaaaa/daddylive .
+RUN git clone https://github.com/vettelistrue/DenemeKanka .
 
 RUN pip install flask curl-cffi m3u8 gunicorn
-
-RUN echo "Rebuild at $(date '+%Y-%m-%d %H:%M:%S')" >> /app/rebuild.log
 
 EXPOSE 7860
 
